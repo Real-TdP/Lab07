@@ -37,6 +37,29 @@ public class PowerOutagesController {
     void buttonWCA(ActionEvent event) {
     	txtResult.clear();
     	
+    	Nerc nerc = NERC.getValue();
+    	if(txtHours.getText().isEmpty()||txtYears.getText().isEmpty()||nerc==null) {
+    		txtResult.appendText("Compila tutti i campi.");
+    		return;
+    	}
+    	
+    	int hours;
+		int years;
+		
+		try {
+			hours = Integer.parseInt(txtHours.getText());
+			years = Integer.parseInt(txtYears.getText());
+			if(hours<0||years<0) {
+				txtResult.appendText("Inserisci numeri validi(>0).");
+	    		return;
+			}
+		} catch (NumberFormatException e) {
+			txtResult.appendText("Inserisci numeri validi.");
+    		return;
+		}
+		
+    	String result =model.getWorstCase(nerc,hours,years);
+    	txtResult.appendText(result);
 
     }
 

@@ -29,4 +29,12 @@ public class Model {
 		return podao.getNercList(nERCmap);
 	}
 
+	public String getWorstCase(Nerc nerc, int hours, int years) {
+		
+		
+		return "fine";
+	}
+	
+	
+
 }

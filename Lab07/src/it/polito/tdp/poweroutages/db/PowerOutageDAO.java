@@ -40,7 +40,7 @@ public class PowerOutageDAO {
 	}
 
 	public List<PowerOutage> getPowerOutages(IdMapPowerOutage pOmap,IdMapNerc nERCmap) {
-		String sql = "SELECT id,nerc_id,customers_affected,date_event_began,date_event_finished,demand_loss FROM poweroutages";
+		String sql = "SELECT id,nerc_id,customers_affected,date_event_began,date_event_finished FROM poweroutages";
 		List<PowerOutage> pOList = new ArrayList<>();
 
 		try {
@@ -54,8 +54,7 @@ public class PowerOutageDAO {
 				int cust_aff=res.getInt("customers_affected");
 				LocalDateTime dataB= res.getTimestamp("date_event_began").toLocalDateTime();
 				LocalDateTime dataF= res.getTimestamp("date_event_finished").toLocalDateTime();
-				int dem_loss = res.getInt("demand_loss");
-				PowerOutage n = new PowerOutage(id,nerc,cust_aff,dataB,dataF,dem_loss);
+				PowerOutage n = new PowerOutage(id,nerc,cust_aff,dataB,dataF);
 				pOList.add(pOmap.get(n));
 			}
 

@@ -8,15 +8,13 @@ public class PowerOutage {
 	private int customAffect;
 	private LocalDateTime dataS;
 	private LocalDateTime dataF;
-	private int demandLoss;
 	
-	public PowerOutage(int id, Nerc Nerc, int customAffect, LocalDateTime dataS, LocalDateTime dataF, int demandLoss) {
+	public PowerOutage(int id, Nerc Nerc, int customAffect, LocalDateTime dataS, LocalDateTime dataF) {
 		this.id = id;
 		this.Nerc = Nerc;
 		this.customAffect = customAffect;
 		this.dataS = dataS;
 		this.dataF = dataF;
-		this.demandLoss = demandLoss;
 	}
 
 	public int getId() {
@@ -57,14 +55,6 @@ public class PowerOutage {
 
 	public void setDataF(LocalDateTime dataF) {
 		this.dataF = dataF;
-	}
-
-	public int getDemandLoss() {
-		return demandLoss;
-	}
-
-	public void setDemandLoss(int demandLoss) {
-		this.demandLoss = demandLoss;
 	}
 
 	@Override
