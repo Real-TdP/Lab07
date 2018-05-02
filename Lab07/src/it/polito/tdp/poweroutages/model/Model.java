@@ -32,7 +32,8 @@ public class Model {
 	public String getWorstCase(Nerc nerc, int hours, int years) {
 		
 		
-		return null;
+		
+		return "fine";
 	}
 	
 	

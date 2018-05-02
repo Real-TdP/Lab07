@@ -1,13 +1,26 @@
 package it.polito.tdp.poweroutages.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Nerc {
 
 	private int id;
 	private String value;
+	private List<PowerOutage> powerOutage;
 
 	public Nerc(int id, String value) {
 		this.id = id;
 		this.value = value;
+		powerOutage= new ArrayList<PowerOutage>();
+	}
+
+	public List<PowerOutage> getPowerOutage() {
+		return powerOutage;
+	}
+
+	public void addPowerOutage(PowerOutage powerOutage) {
+		this.powerOutage.add(powerOutage);
 	}
 
 	public int getId() {

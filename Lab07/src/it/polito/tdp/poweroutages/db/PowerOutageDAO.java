@@ -55,6 +55,7 @@ public class PowerOutageDAO {
 				LocalDateTime dataB= res.getTimestamp("date_event_began").toLocalDateTime();
 				LocalDateTime dataF= res.getTimestamp("date_event_finished").toLocalDateTime();
 				PowerOutage n = new PowerOutage(id,nerc,cust_aff,dataB,dataF);
+				nerc.addPowerOutage(n);
 				pOList.add(pOmap.get(n));
 			}
 
