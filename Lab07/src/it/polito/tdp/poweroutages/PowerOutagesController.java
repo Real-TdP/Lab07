@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 
 public class PowerOutagesController {
 	
-	Model model= new Model();
+	Model model;
 
     @FXML
     private ResourceBundle resources;
@@ -46,12 +46,13 @@ public class PowerOutagesController {
         assert txtYears != null : "fx:id=\"txtYears\" was not injected: check your FXML file 'PowerOutages.fxml'.";
         assert txtHours != null : "fx:id=\"txtHours\" was not injected: check your FXML file 'PowerOutages.fxml'.";
         assert txtResult != null : "fx:id=\"txtResult\" was not injected: check your FXML file 'PowerOutages.fxml'.";
-        NERC.getItems().addAll(model.getNercList());
+        
 
     }
     
     public void setModel(Model m) {
     	this.model=m;
+    	NERC.getItems().addAll(model.getNercList());
     }
     
 }
