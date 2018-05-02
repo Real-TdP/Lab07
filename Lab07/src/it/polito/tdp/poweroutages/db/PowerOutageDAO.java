@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.polito.tdp.poweroutages.model.Nerc;
+import it.polito.tdp.poweroutages.bean.Nerc;
 
 public class PowerOutageDAO {
 
