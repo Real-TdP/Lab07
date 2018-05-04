@@ -39,9 +39,9 @@ public class PowerOutageDAO {
 		return nercList;
 	}
 
-	public List<PowerOutage> getPowerOutages(IdMapPowerOutage pOmap,IdMapNerc nERCmap) {
+	public void getPowerOutages(IdMapPowerOutage pOmap,IdMapNerc nERCmap) {
 		String sql = "SELECT id,nerc_id,customers_affected,date_event_began,date_event_finished FROM poweroutages";
-		List<PowerOutage> pOList = new ArrayList<>();
+		
 
 		try {
 			Connection conn = ConnectDB.getConnection();
@@ -56,7 +56,6 @@ public class PowerOutageDAO {
 				LocalDateTime dataF= res.getTimestamp("date_event_finished").toLocalDateTime();
 				PowerOutage n = new PowerOutage(id,nerc,cust_aff,dataB,dataF);
 				nerc.addPowerOutage(n);
-				pOList.add(pOmap.get(n));
 			}
 
 			conn.close();
@@ -65,7 +64,7 @@ public class PowerOutageDAO {
 			throw new RuntimeException(e);
 		}
 
-		return pOList;
+		return;
 	}
 
 }

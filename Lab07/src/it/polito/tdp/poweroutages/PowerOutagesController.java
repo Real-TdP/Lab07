@@ -36,7 +36,7 @@ public class PowerOutagesController {
     @FXML
     void buttonWCA(ActionEvent event) {
     	txtResult.clear();
-    	
+
     	Nerc nerc = NERC.getValue();
     	if(txtHours.getText().isEmpty()||txtYears.getText().isEmpty()||nerc==null) {
     		txtResult.appendText("Compila tutti i campi.");

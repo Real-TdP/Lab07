@@ -1,6 +1,7 @@
 package it.polito.tdp.poweroutages.bean;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 public class PowerOutage {
 	private int id;
@@ -8,6 +9,8 @@ public class PowerOutage {
 	private int customAffect;
 	private LocalDateTime dataS;
 	private LocalDateTime dataF;
+	private int difH;
+
 	
 	public PowerOutage(int id, Nerc Nerc, int customAffect, LocalDateTime dataS, LocalDateTime dataF) {
 		this.id = id;
@@ -15,7 +18,26 @@ public class PowerOutage {
 		this.customAffect = customAffect;
 		this.dataS = dataS;
 		this.dataF = dataF;
+		difH=(int) ChronoUnit.HOURS.between(dataS, dataF);
 	}
+	
+	public int getYear() {
+		return dataS.getYear();
+	}
+
+	public void setNerc(Nerc nerc) {
+		Nerc = nerc;
+	}
+
+
+	public int getDifH() {
+		return difH;
+	}
+
+	public void setDifH(int dif) {
+		this.difH = dif;
+	}
+
 
 	public int getId() {
 		return id;
@@ -81,7 +103,9 @@ public class PowerOutage {
 	
 	
 	
-	
+	public String toString() {
+		return dataS.getYear()+" "+dataS.toString()+" "+dataF.toString()+" "+this.difH+" "+this.customAffect;
+	}
 
 	
 	
